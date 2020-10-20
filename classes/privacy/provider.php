@@ -70,8 +70,18 @@ class provider implements \core_privacy\local\metadata\provider,
             'grade' => 'privacy:metadata:vpl_submissions:grade',
             'gradercomments' => 'privacy:metadata:vpl_submissions:gradercomments',
         ];
+        $assignedvariationsfields = [
+            'vpl' => 'privacy:metadata:vpl:id',
+            'variation' => 'privacy:metadata:vpl_assigned_variations:variation',
+        ];
+        $runningprocessesfields = [
+            'vpl' => 'privacy:metadata:vpl:id',
+            'start_time' => 'privacy:metadata:vpl_running_processes:start_time',
+        ];
         $collection->add_database_table('vpl', $vplfields, 'privacy:metadata:vpl');
         $collection->add_database_table('vpl_submissions', $submisionsfields, 'privacy:metadata:vpl_submissions');
+        $collection->add_database_table('vpl_assigned_variations', $assignedvariationsfields, 'privacy:metadata:vpl_submissions');
+        $collection->add_database_table('vpl_running_processes', $runningprocessesfields, 'privacy:metadata:vpl_submissions');
         // IDE user preferences.
         $collection->add_user_preference('vpl_editor_fontsize', 'privacy:metadata:vpl_editor_fontsize');
         $collection->add_user_preference('vpl_acetheme', 'privacy:metadata:vpl_acetheme');
